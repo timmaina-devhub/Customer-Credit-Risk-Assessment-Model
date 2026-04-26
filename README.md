@@ -1,44 +1,60 @@
-# Customer Credit Risk Assessment Model
+# 📊 Customer Credit Risk Assessment Model
 
 ## Project Overview
-This project focuses on predicting customer credit risk using engineered proxy labels derived from financial behaviour and credit characteristics.
+This project focuses on building a data-driven credit risk assessment system to identify high-risk borrowers and support more accurate lending decisions. The solution addresses limitations in traditional credit scoring by incorporating behavioral, financial, and engineered risk indicators.
 
 ---
 
 ## Business Problem
-The original default variable lacked predictive signal, requiring the development of a new proxy target to simulate real-world credit risk.
+The existing lending system was underperforming due to structural and data limitations:
+
+- Default rate at 18.3% vs. 9.5% industry benchmark, resulting in significant financial losses (~KES 439M annually)
+- 12% of applicants lacked credit scores, yet ~40% of them were creditworthy
+- A single approval threshold was applied across all loan sizes, reducing decision accuracy
+- ~3% duplicate applications were used to bypass rejection rules
+- 35% of applicants had informal income, making traditional assessment unreliable
+- Current model used only 8 features, ignoring rich transaction-level data (80,000+ records)
+
+Additionally, the available default variable showed weak predictive signal, limiting the effectiveness of standard supervised learning models.
 
 ---
 
 ## Objectives
-- Reconstruct a meaningful target variable
-- Build predictive models for credit risk classification
-- Evaluate trade-offs between precision and recall
+- Reconstruct a reliable target variable for credit risk classification
+- Improve detection of high-risk customers (increase recall)
+- Build and compare machine learning models for risk prediction
+- Balance precision and recall to align with business risk tolerance
 
 ---
 
 ## Dataset Description
-The dataset includes customer demographic and financial attributes such as age, income, loan amounts, and credit scores. Additional behavioral features were engineered to capture financial risk patterns.
+The dataset includes customer demographic and financial attributes such as age, income, loan amounts, and credit scores. Additional behavioral features were engineered, including financial ratios and aggregated customer-level patterns derived from transactional data.
 
 ---
 
 ## Methodology
 
 ### Data Preparation
-- Cleaned and standardized dataset
-- Engineered financial ratios and aggregated customer behavior
+- Cleaned and validated dataset
+- Engineered financial ratios (loan-to-income, debt-to-income)
+- Aggregated customer-level behavioral insights
 
 ### Target Engineering
-- Created composite risk score (all_scores_included)
-- Introduced stochastic scoring within credit bands
-- Derived binary classification label from thresholding
+- Identified issues with the original default variable (low signal / randomness)
+- Created a composite risk score (`all_scores_included`) based on financial indicators
+- Introduced stochastic scoring within credit score bands to reduce deterministic relationships
+- Derived binary classification label using threshold-based logic
+
+### Handling Class Imbalance
+- Applied SMOTE to improve detection of minority (high-risk) class
 
 ### Modeling
+Trained and compared:
 - Logistic Regression
 - Random Forest
 - XGBoost
 
-### Evaluation
+### Evaluation Metrics
 - Precision
 - Recall
 - F1 Score
@@ -58,19 +74,23 @@ The dataset includes customer demographic and financial attributes such as age, 
 
 ## Insights
 - Target quality significantly impacts model performance
-- Feature-engineered targets can simulate real-world scenarios
-- Tree-based models perform better for nonlinear financial patterns
+- Feature-engineered proxy labels can improve learning when real outcomes are unreliable
+- Controlled randomness reduces leakage and improves generalization
+- Tree-based models outperform linear models in capturing nonlinear financial risk patterns
+- Precision–recall trade-offs are critical in credit risk, with recall prioritized to minimize financial losses
 
 ---
 
 ## Challenges
-- Target leakage and label reliability
-- Balancing performance with interpretability
+- Detecting and mitigating target leakage
+- Engineering a realistic proxy target without overfitting
+- Balancing model performance with interpretability
+- Handling incomplete and informal financial data
 
 ---
 
 ## Conclusion
-XGBoost achieved the best balance between precision and recall, making it the most suitable model for identifying high-risk customers.
+This project demonstrates the importance of data quality, feature engineering, and problem framing in credit risk modeling. By reconstructing the target variable and improving feature representation, the models achieved realistic and reliable performance. XGBoost emerged as the best-performing model, offering a strong balance between identifying high-risk customers and minimizing false positives.
 
 ---
 
@@ -86,11 +106,11 @@ XGBoost achieved the best balance between precision and recall, making it the mo
 
 ## Future Work
 - Incorporate real-world default data
-- Implement cost-sensitive learning
-- Deploy model via API
+- Implement cost-sensitive modeling
+- Introduce dynamic approval thresholds based on loan size
+- Deploy model as an API for real-time scoring
 
 ---
 
 ## Dashboard Preview
-
-![Dashboard Preview](./credit_risk_dashboard.png)
+(Add screenshots here)
