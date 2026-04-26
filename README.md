@@ -1,4 +1,4 @@
-# 📊 Customer Credit Risk Assessment Model
+# Customer Credit Risk Assessment Model
 
 ## Project Overview
 This project focuses on predicting customer credit risk using engineered proxy labels derived from financial behaviour and credit characteristics.
