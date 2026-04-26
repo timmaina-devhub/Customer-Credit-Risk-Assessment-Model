@@ -118,4 +118,4 @@ This project demonstrates the importance of data quality, feature engineering, a
 
 ---
 
-![Dashboard Preview](./credit_risk_dashboard.png)
+![Dashboard Preview](./customers_credit_risk_dashboard.png)
