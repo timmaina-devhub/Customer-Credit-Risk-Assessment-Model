@@ -75,13 +75,13 @@ XGBoost achieved the best balance between precision and recall, making it the mo
 ---
 
 ## Project Structure
-
+```
 ├── data/
 ├── notebooks/
 ├── models/
 ├── dashboard/
 └── README.md
-
+```
 ---
 
 ## Future Work
@@ -92,4 +92,5 @@ XGBoost achieved the best balance between precision and recall, making it the mo
 ---
 
 ## Dashboard Preview
-(Add screenshots here)
+
+![Dashboard Preview](./credit_risk_dashboard.png)
