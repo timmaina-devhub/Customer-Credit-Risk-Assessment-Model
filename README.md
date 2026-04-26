@@ -1,4 +1,4 @@
-# 📊 Customer Credit Risk Assessment Model
+# Customer Credit Risk Assessment Model
 
 ## Project Overview
 This project focuses on building a data-driven credit risk assessment system to identify high-risk borrowers and support more accurate lending decisions. The solution addresses limitations in traditional credit scoring by incorporating behavioral, financial, and engineered risk indicators.
