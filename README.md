@@ -114,3 +114,10 @@ This project demonstrates the importance of data quality, feature engineering, a
 ## Dashboard Preview
 
 ![Dashboard Preview](./credit_risk_dashboard.png)
+
+---
+## Project API Repository
+
+* The API repository for this project is at: <a href='https://github.com/timmaina-devhub/credit_predict_app' target='_blank'>CreditRisk App</a>
+
+---
